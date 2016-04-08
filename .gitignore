@@ -1,0 +1,11 @@
+.gradle
+.nb-gradle
+.settings
+.classpath
+.project
+.DS*
+build
+build/
+private
+private/
+WebContent/

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.blackboard.com/bb-manifest-plugin"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.blackboard.com/bb-manifest-plugin http://fibbba.medu.com/xsd/bb-manifest-plugin.xsd">
+  <plugin>
+
+    <name value="alltoolsb2" />
+    <handle value="alltoolsb2" />
+    <description value="alltoolsb2" />
+    <default-locale value="en_US" />
+
+    <version value="1.0" />
+    <requires>
+      <bbversion value="9.1.130000.0" />
+    </requires>
+
+    <vendor>
+      <id value="bbdn" />
+      <name value="Blackboard Developer Network, Blackboard Inc" />
+      <url value="http://developer.blackboard.com" />
+      <description value="The Blackboard Developer Network supports developers in the creation of extensions to the Blackboard Learn platform." />
+    </vendor>
+
+    <!-- These two JSPs are displayed when the "remove" and "properties" buttons --> 
+    <!-- are pressed on the Building Blocks administration page. -->
+    <!-- 
+    <http-actions>
+      <config value="admin/configure.jsp"/>
+      <remove value="admin/remove.jsp"/>
+    </http-actions>
+     -->    
+    <http-actions>
+        <config value="jsp/config.jsp" />
+    </http-actions>
+
+    <application-defs>
+        <application handle="alltoolsb2" 
+                     type="shared" use-ssl="true"
+                     name="alltoolsb2"
+                     can-allow-guest="false"
+                     is-course-tool="false"
+                     is-sys-tool="true">
+            <description lang="en_US">
+            The Admin Logbook provides an in-Learn logbook for Administrator activity.
+            </description>
+            <links>
+                <link>
+                    <type value="system_tool"/>
+                    <name value="alltoolsb2"/>
+                    <url value="index" />
+                    <description value="alltoolsb2" />
+                </link>
+            </links>
+        </application>
+    </application-defs>
+
+    <module-defs>
+      <module-type ext-ref="alltoolsb2-module" 
+                   title="Learn Course User Roles" 
+                   uicreatable="true">
+        <jsp-dir>module</jsp-dir>
+        <jsp>
+          <view>view.jsp</view>
+        </jsp>
+      </module-type>
+      <module type="alltoolsb2-module" 
+              isadmin="true" 
+              useraddable="true" 
+              isdeletable="true" 
+              isdetachable="true" 
+              title="alltoolsb2">
+        <description>
+            Module for easy access to course-user roles 
+        </description>
+        <ExtraInfo/>
+        <module-groups>
+          <module-group id="alltoolsb2" />
+        </module-groups>
+      </module>
+    </module-defs>
+
+    <permissions>
+      <permission type="attribute" name="user.authinfo" actions="get"/>
+      <permission type="attribute" name="user.personalinfo" actions="get,set"/>
+      
+      <!-- We need these permissions to allow Spring to auto-discover and wire beans together and Hibernate to interact with objects. -->
+      <permission type="java.lang.reflect.ReflectPermission" name="suppressAccessChecks" />
+      <permission type="java.lang.RuntimePermission" name="accessDeclaredMembers" />
+      <permission type="java.lang.RuntimePermission" name="createClassLoader" />
+      <permission type="java.lang.RuntimePermission" name="setContextClassLoader" />
+      <!-- permission type="java.io.FilePermission" name="${java.home}/lib/*" actions="read" / -->
+      <permission type="java.io.FilePermission" actions="read,write" name="&amp;lt;&amp;lt;ALL FILES&amp;gt;&amp;gt;" />
+    </permissions>
+
+  </plugin>
+</manifest>
