@@ -37,9 +37,9 @@ THIS SOFTWARE IS PROVIDED BY BLACKBOARD INC ``AS IS'' AND ANY EXPRESS OR IMPLIED
     
 
     <h1>Hello <%=ctx.getUser().getGivenName()%>&nbsp;<%=ctx.getUser().getFamilyName()%>!</h1>
-    <h2>This is a system tool page. </h2>
-    <h2>Notice how we used the bbNG:breadcrumbBar tag to get the gear link on the upper left of the page.<h2>
-    <h2>And, notice how we used the bbNG:breadcrumb tag to indicate the page we are on.</h2>
+    <h2>The course: ${theCourseTitle}  </h2>
+    <h2>theCourseIdExternalString: ${theCourseIdExternalString}</h2>
+    <h2>The theCourse.getId().toExternalString(): ${theCourse.getId().toExternalString()} </h2>
     <hr>
     <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 </bbNG:learningSystemPage>
