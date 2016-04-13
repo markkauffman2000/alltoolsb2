@@ -28,10 +28,10 @@ THIS SOFTWARE IS PROVIDED BY BLACKBOARD INC ``AS IS'' AND ANY EXPRESS OR IMPLIED
 <bbNG:learningSystemPage ctxId="ctx">
     
     <bbNG:pageHeader>
-        <bbNG:breadcrumbBar environment="sys_admin" navItem="admin_main">
-            <bbNG:breadcrumb>alltoolsb2-system_tool</bbNG:breadcrumb>
+        <bbNG:breadcrumbBar environment="course" >
+            <bbNG:breadcrumb>alltoolsb2-course_tool</bbNG:breadcrumb>
         </bbNG:breadcrumbBar>
-        <bbNG:pageTitleBar >alltoolsb2-system_tool</bbNG:pageTitleBar>
+        <bbNG:pageTitleBar >alltoolsb2-course_tool</bbNG:pageTitleBar>
     </bbNG:pageHeader>
     <% String user_id = ctx.getUser().getBatchUid(); %>
     

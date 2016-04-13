@@ -38,7 +38,7 @@
                      type="shared" use-ssl="true"
                      name="alltoolsb2"
                      can-allow-guest="false"
-                     is-course-tool="false"
+                     is-course-tool="true"
                      is-sys-tool="true">
             <description lang="en_US">
             The Admin Logbook provides an in-Learn logbook for Administrator activity.
@@ -49,6 +49,12 @@
                     <name value="alltoolsb2-system_tool"/>
                     <url value="system_tool" />
                     <description value="alltoolsb2-system_tool" />
+                </link>
+                <link>
+                    <type value="course_tool"/>
+                    <name value="alltoolsb2-course_tool"/>
+                    <url value="course_tool" />
+                    <description value="alltoolsb2-course_tool" />
                 </link>
             </links>
         </application>

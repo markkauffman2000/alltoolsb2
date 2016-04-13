@@ -67,8 +67,63 @@ public class HomeController {
 		return "home";
 	}
 
+        @RequestMapping(value = "/course_tool", method = RequestMethod.GET)
+	public String courseTool(Locale locale, Model model) {
+                CourseDbLoader crsLoader;
+                List<CourseMembership> memberships = new ArrayList<CourseMembership>();
+              
+                Course theCourse = null;
+                Id theCourseId =null;
+                String theCourseIdExternalString ="";
+                
+                String theCourseTitle = "no course title";
+                
+                try {
+                    crsLoader = CourseDbLoader.Default.getInstance();
+                    theCourse = crsLoader.loadByCourseId("mbk-test-two");
+                    theCourseTitle = theCourse.getTitle();
+                    theCourseId = theCourse.getId();
+                    theCourseIdExternalString = theCourse.getId().toExternalString();
+                    if (theCourseIdExternalString == null)
+                    {
+                        theCourseIdExternalString = "result was a null";
+                    } else {
+                        if (theCourseIdExternalString.equals(""))
+                        theCourseIdExternalString = "result was an empty string";
+                    }                           
+                   
+                }
+                catch ( Exception e )
+                {
+                    logger.info("Exception:", e.getMessage());
+                    e.printStackTrace();
+                }
+                
+		logger.info("Requested /system_tool! The client locale is {}.", locale);
+                
+                try {
+                    memberships = CourseMembershipDbLoader.Default.getInstance().loadByCourseId(theCourse.getId()); 
+                
+                }catch (Exception e)
+                {
+                    logger.info("Exception:", e.getMessage());
+                    e.printStackTrace();
+                }
+                
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("theCourseTitle",theCourseTitle);
+                model.addAttribute("theCourse",theCourse);
+                model.addAttribute("theCourseIdExternalString", theCourseIdExternalString);
+		return "course_tool";
+	} // courseTool
+        
 	@RequestMapping(value = "/system_tool", method = RequestMethod.GET)
-	public String index(Locale locale, Model model) {
+	public String systemTool(Locale locale, Model model) {
                 CourseDbLoader crsLoader;
                 List<CourseMembership> memberships = new ArrayList<CourseMembership>();
               
@@ -120,7 +175,7 @@ public class HomeController {
                 model.addAttribute("theCourse",theCourse);
                 model.addAttribute("theCourseIdExternalString", theCourseIdExternalString);
 		return "system_tool";
-	}
+	} // systemTool
 
 
 	@RequestMapping(value = "/learnhello", method = RequestMethod.GET)
