@@ -12,7 +12,7 @@ Neither the name of Blackboard Inc. nor the names of its contributors may be use
 THIS SOFTWARE IS PROVIDED BY BLACKBOARD INC ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BLACKBOARD INC. BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package com.blackboard.bbdn.alltools;
+package com.blackboard.bbdn.alltoolsb2;
 
 
 import blackboard.base.FormattedText;
@@ -23,8 +23,8 @@ import blackboard.persist.impl.mapping.annotation.Column;
 import blackboard.persist.impl.mapping.annotation.PrimaryKey;
 import blackboard.persist.impl.mapping.annotation.Table;
 
-import com.blackboard.bbdn.alltools.Log;
-import com.blackboard.bbdn.alltools.LogDAO;
+import com.blackboard.bbdn.alltoolsb2.Log;
+import com.blackboard.bbdn.alltoolsb2.LogDAO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

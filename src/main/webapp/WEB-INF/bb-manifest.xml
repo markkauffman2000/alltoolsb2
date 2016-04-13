@@ -46,9 +46,9 @@
             <links>
                 <link>
                     <type value="system_tool"/>
-                    <name value="alltoolsb2"/>
-                    <url value="index" />
-                    <description value="alltoolsb2" />
+                    <name value="alltoolsb2-system_tool"/>
+                    <url value="system_tool" />
+                    <description value="alltoolsb2-system_tool" />
                 </link>
             </links>
         </application>

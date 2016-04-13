@@ -12,7 +12,7 @@ Neither the name of Blackboard Inc. nor the names of its contributors may be use
 THIS SOFTWARE IS PROVIDED BY BLACKBOARD INC ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BLACKBOARD INC. BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package com.blackboard.bbdn.alltools;
+package com.blackboard.bbdn.alltoolsb2;
 
 import blackboard.data.course.Course;
 import blackboard.data.course.CourseMembership;
@@ -67,7 +67,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/system_tool", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
                 CourseDbLoader crsLoader;
                 List<CourseMembership> memberships = new ArrayList<CourseMembership>();
@@ -76,7 +76,7 @@ public class HomeController {
                 Id theCourseId =null;
                 String theCourseIdExternalString ="";
                 
-                String theCourseTitle = "theCourseTitle";
+                String theCourseTitle = "no course title";
                 
                 try {
                     crsLoader = CourseDbLoader.Default.getInstance();
@@ -99,7 +99,7 @@ public class HomeController {
                     e.printStackTrace();
                 }
                 
-		logger.info("Requested /index! The client locale is {}.", locale);
+		logger.info("Requested /system_tool! The client locale is {}.", locale);
                 
                 try {
                     memberships = CourseMembershipDbLoader.Default.getInstance().loadByCourseId(theCourse.getId()); 
@@ -119,7 +119,7 @@ public class HomeController {
 		model.addAttribute("theCourseTitle",theCourseTitle);
                 model.addAttribute("theCourse",theCourse);
                 model.addAttribute("theCourseIdExternalString", theCourseIdExternalString);
-		return "index";
+		return "system_tool";
 	}
 
 
